@@ -3,7 +3,7 @@
 const transaction = {
     id: 1,
     merchant: "Kroger",
-    date: 2026-11-11, // YYYY-MM-DD format
+    date: "2026-11-11", // YYYY-MM-DD format
     category: "Groceries",
     amount: 85.50,
     type: "expense",
@@ -11,3 +11,6 @@ const transaction = {
     notes: random,
     tag: groceries
 }
+
+// testing
+console.log(transaction.amount)
