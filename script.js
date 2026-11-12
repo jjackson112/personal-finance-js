@@ -67,7 +67,7 @@ console.log(transactionThree.notes)
 console.log(transactionFive.category)
 
 // create transactions - array
-const transactions = [transactionOne, transactionTwo, transactionThree, transactionFour]
+let transactions = [transactionOne, transactionTwo, transactionThree, transactionFour]
 
 console.log(transactions[1].merchant)
 console.log(transactions[2].amount)
@@ -101,8 +101,17 @@ function addTransaction(transaction) {
 
 // delete a transaction
 function deleteTransaction(id) {
-    const filteredTransactions = transactions.filter(transaction => transaction.id)
+    const filterIds = transactions.filter(item => item.id !== id)
+    const existingId = transactions.some(item => item.id === id)
+
+    if (existingId) {
+        transactions.
+    } else {
+        console.log("This transaction does not exist.")
+    }
+
+    console.log(filterIds)
+
 }
 
-
-
+deleteTransaction(1)
