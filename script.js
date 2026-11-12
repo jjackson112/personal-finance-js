@@ -48,10 +48,23 @@ const transactionFour = {
     tag: "music subscription"
 }
 
+const transactionFive = {
+    id: 5,
+    merchant: "Google",
+    date: "2026-11-01", 
+    category: "Cloud Service",
+    amount: 0.99,
+    type: "expense",
+    account: "Checking",
+    notes: "cloud",
+    tag: "cloud subscription"
+}
+
 // testing
 console.log(transactionOne.amount)
 console.log(transactionTwo.category)
 console.log(transactionThree.notes)
+console.log(transactionFive.category)
 
 // create transactions - array
 const transactions = [transactionOne, transactionTwo, transactionThree]
@@ -78,7 +91,8 @@ function addTransaction(transaction) {
     }
 }
 
-addTransaction(transactionFour)
+addTransaction(transactionFive)
+addTransaction(transactionFive)
 
 console.log(transactions.length) // to check some()
 
