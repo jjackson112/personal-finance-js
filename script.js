@@ -69,7 +69,7 @@ console.log(transactions[0].date)
 // create the function 
 function addTransaction(transaction) {
     // check if id exists or not
-    const exists = transactions.some(transaction => transaction.id === 2)
+    const exists = transactions.some(item => item.id === transaction.id)
 
     if (!exists) {
         transactions.push(transaction)
@@ -77,4 +77,7 @@ function addTransaction(transaction) {
 }
 
 addTransaction(transactionFour)
+addTransaction(transactionFour)
+
+console.log(transactions.length)
 
