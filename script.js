@@ -104,13 +104,13 @@ function deleteTransaction(id) {
     const existingId = transactions.some(item => item.id === id)
 
     if (existingId) {
-        filterIds = transactions.filter(item => item.id !== id)
+        transactions = transactions.filter(item => item.id !== id)
         console.log(`Transaction ${id} deleted.`)
     } else {
         console.log("This transaction does not exist.")
     }
 
-    console.log(filterIds)
+    console.log(transactions)
 }
 
-deleteTransaction(1)
+ deleteTransaction(2)
