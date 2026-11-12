@@ -71,13 +71,14 @@ function addTransaction(transaction) {
     // check if id exists or not
     const exists = transactions.some(item => item.id === transaction.id)
 
+    console.log("Transaction ID already exists", exists)
+
     if (!exists) {
         transactions.push(transaction)
     }
 }
 
 addTransaction(transactionFour)
-addTransaction(transactionFour)
 
-console.log(transactions.length)
+console.log(transactions.length) // to check some()
 
