@@ -15,7 +15,7 @@ const transactionOne = {
 const transactionTwo = {
     id: 2,
     merchant: "Walmart",
-    date: "2026-11-03", // YYYY-MM-DD format
+    date: "2026-11-03",
     category: "Groceries",
     amount: 35.59,
     type: "expense",
@@ -27,13 +27,25 @@ const transactionTwo = {
 const transactionThree = {
     id: 3,
     merchant: "Landlord",
-    date: "2026-11-01", // YYYY-MM-DD format
+    date: "2026-11-01", 
     category: "Rent",
     amount: 1500.19,
     type: "expense",
     account: "Checking",
     notes: "random",
     tag: "rent"
+}
+
+const transactionFour = {
+    id: 4,
+    merchant: "Spotify",
+    date: "2026-11-01", 
+    category: "Music",
+    amount: 10.99,
+    type: "expense",
+    account: "Checking",
+    notes: "beats",
+    tag: "music subscription"
 }
 
 // testing
@@ -44,7 +56,12 @@ console.log(transactionThree.notes)
 // create transactions - array
 const transactions = [transactionOne, transactionTwo, transactionThree]
 
-console.log(transactions)
 console.log(transactions[1].merchant)
 console.log(transactions[2].amount)
 console.log(transactions[0].date)
+
+// push() - create new array with no more manual transactions
+const newTransactions = transactions.push(transactionFour)
+
+console.log(newTransactions)
+console.log(transactions)
