@@ -45,3 +45,6 @@ console.log(transactionThree.notes)
 const transactions = [transactionOne, transactionTwo, transactionThree]
 
 console.log(transactions)
+console.log(transactions[1].merchant)
+console.log(transactions[2].amount)
+console.log(transactions[0].date)
