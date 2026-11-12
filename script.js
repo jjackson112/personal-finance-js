@@ -94,8 +94,15 @@ function addTransaction(transaction) {
     return false
 }
 
-addTransaction(transactionFive)
-addTransaction(transactionFive)
+// addTransaction(transactionFive)
+// addTransaction(transactionFive)
 
-console.log(transactions.length) // to check some()
+// console.log(transactions.length) // to check some()
+
+// delete a transaction
+function deleteTransaction(id) {
+    const filteredTransactions = transactions.filter(transaction => transaction.id)
+}
+
+
 
