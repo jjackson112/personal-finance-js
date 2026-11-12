@@ -67,7 +67,7 @@ console.log(transactionThree.notes)
 console.log(transactionFive.category)
 
 // create transactions - array
-const transactions = [transactionOne, transactionTwo, transactionThree]
+const transactions = [transactionOne, transactionTwo, transactionThree, transactionFour]
 
 console.log(transactions[1].merchant)
 console.log(transactions[2].amount)
