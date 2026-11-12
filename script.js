@@ -79,7 +79,7 @@ console.log(transactions[0].date)
 // console.log(newTransactions)
 // console.log(transactions)
 
-// create the function 
+// create the transaction 
 function addTransaction(transaction) {
     // check if id exists or not
     const exists = transactions.some(item => item.id === transaction.id)
@@ -98,6 +98,12 @@ function addTransaction(transaction) {
 // addTransaction(transactionFive)
 
 // console.log(transactions.length) // to check some()
+
+// update the transaction
+function updateTransaction(id) {
+    // find transaction
+    const selectedTransaction = transactions.find((item) => item.id === transaction.id)
+}
 
 // delete a transaction
 function deleteTransaction(id) {
