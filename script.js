@@ -60,8 +60,21 @@ console.log(transactions[1].merchant)
 console.log(transactions[2].amount)
 console.log(transactions[0].date)
 
-// push() - create new array with no more manual transactions
-const newTransactions = transactions.push(transactionFour)
+// push() - add 4th transaction to existing transactions array
+// const newTransactions = transactions.push(transactionFour)
 
-console.log(newTransactions)
-console.log(transactions)
+// console.log(newTransactions)
+// console.log(transactions)
+
+// create the function 
+function addTransaction(transaction) {
+    // check if id exists or not
+    const exists = transactions.some(transaction => transaction.id === 2)
+
+    if (!exists) {
+        transactions.push(transaction)
+    }
+}
+
+addTransaction(transactionFour)
+
