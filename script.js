@@ -88,9 +88,10 @@ function addTransaction(transaction) {
 
     if (!exists) {
         transactions.push(transaction)
+        return true
     }
 
-    return true
+    return false
 }
 
 addTransaction(transactionFive)
