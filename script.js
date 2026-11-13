@@ -104,9 +104,8 @@ function updateTransaction(id, updates) {
     // find transaction
     const selectedTransaction = transactions.find(item => item.id === id)
 
-    // update selected transaction
-    selectedTransaction.amount = updates.amount
-    selectedTransaction.notes = updates.notes
+    // update selected transaction - Object.assign replaces selectedTransaction.notes, etc
+    Object.assign(selectedTransactions, updates)
 }
 
 updateTransaction(4, {
