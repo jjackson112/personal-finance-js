@@ -99,18 +99,18 @@ function addTransaction(transaction) {
 
 // console.log(transactions.length) // to check some()
 
-// update the transaction
-function updateTransaction(id, updates) {
+// edit + update the transaction
+function editTransaction(id, updates) {
     // find transaction
     const selectedTransaction = transactions.find(item => item.id === id)
 
     // update selected transaction - Object.assign replaces selectedTransaction.notes, etc
-    Object.assign(selectedTransactions, updates)
+    Object.assign(selectedTransaction, updates)
 }
 
-updateTransaction(4, {
+editTransaction(1, {
     amount: 11.99,
-    notes: "not so beats"
+    notes: "one stop shop groceries"
 })
 
 console.log(transactions)
