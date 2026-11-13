@@ -100,12 +100,12 @@ function addTransaction(transaction) {
 // console.log(transactions.length) // to check some()
 
 // update the transaction
-function updateTransaction(id, transaction) {
+function updateTransaction(id, updates) {
     // find transaction
     const selectedTransaction = transactions.find(item => item.id === id)
 
     // update selected transaction
-
+    selectedTransaction.amount = updates.amount
 }
 updateTransaction(3, {
     amount: 1.99,
