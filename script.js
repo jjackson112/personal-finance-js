@@ -106,11 +106,15 @@ function updateTransaction(id, updates) {
 
     // update selected transaction
     selectedTransaction.amount = updates.amount
+    selectedTransaction.notes = updates.notes
 }
-updateTransaction(3, {
-    amount: 1.99,
+
+updateTransaction(4, {
+    amount: 11.99,
     notes: "not so beats"
 })
+
+console.log(transactions)
 
 // delete a transaction
 function deleteTransaction(id) {
