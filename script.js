@@ -156,3 +156,7 @@ function formatTransactionAmount(transaction) {
 }
 
 console.log(formatTransactionAmount(transactionSix))
+
+function displayTransactions() {
+    const transactionList = document.querySelector("#transaction-list")
+}
