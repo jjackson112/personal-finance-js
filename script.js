@@ -60,6 +60,18 @@ const transactionFive = {
     tag: "cloud subscription"
 }
 
+const transactionSix = {
+    id: 6,
+    merchant: "Employer",
+    date: "2026-10-30", 
+    category: "Income",
+    amount: 1900.43,
+    type: "income",
+    account: "Checking",
+    notes: "cloud",
+    tag: "paycheck"
+}
+
 // testing
 console.log(transactionOne.amount)
 console.log(transactionTwo.category)
@@ -143,4 +155,4 @@ function formatTransactionAmount(transaction) {
     }
 }
 
-console.log(formatTransactionAmount(transactionFive))
+console.log(formatTransactionAmount(transactionSix))
