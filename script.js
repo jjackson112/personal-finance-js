@@ -142,3 +142,5 @@ function formatTransactionAmount(transaction) {
         return (`+${amount}`)
     }
 }
+
+console.log(formatTransactionAmount(transactionFive))
