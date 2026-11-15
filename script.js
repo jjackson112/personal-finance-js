@@ -130,3 +130,15 @@ function deleteTransaction(id) {
 }
 
  deleteTransaction(2)
+
+// using the type property + format transaction amount to return signed amount as a string
+function formatTransactionAmount(transactionFive) {
+    // return absolute value of a number
+    const amount = transactionFive.amount
+
+    if (type === "expense") {
+        return -amount
+    } else {
+        return amount
+    }
+}
