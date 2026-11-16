@@ -161,7 +161,7 @@ function displayTransactions() {
     const transactionTitle = document.querySelector("h2")
     const transactionList = document.querySelector("#transaction-list")
     
-    transactionTitle.style.color = "pink"
+    transactionTitle.style.color = "green"
     // transactionList.textContent = transactions[0].merchant
 
     // prevent duplicates
