@@ -164,6 +164,8 @@ function displayTransactions() {
     transactionTitle.style.color = "pink"
     // transactionList.textContent = transactions[0].merchant
 
+    transactionList.textContent = ""
+    
     transactions.forEach((transaction) => {
         const singleTransaction = document.createElement("p")
         singleTransaction.textContent = transaction.merchant
