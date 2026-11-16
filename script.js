@@ -123,8 +123,15 @@ form.addEventListener("submit", function(e) {
 
     // console.log(transaction)
     // console.log(nextTransactionId)
-    
+
     addTransaction(transaction)
     displayTransactions()
     form.reset()
 })
+
+// calculate total income transactions
+function totalIncome() {
+    const income = transactions.filter(item => item.type === "income")
+
+    return income
+}
