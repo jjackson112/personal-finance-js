@@ -64,7 +64,7 @@ function formatTransactionAmount(transaction) {
 
 // console.log(formatTransactionAmount(transactionSix))
 
-// calculate total income transactions
+// calculate total income
 function totalIncome() {
     const income = transactions.filter(item => item.type === "income")
 
@@ -73,6 +73,17 @@ function totalIncome() {
     }, 0)
 
     return incomeTotal.toFixed((2))
+}
+
+// calculate total expenses
+function totalExpenses() {
+    const expenses = transactions.filter(item => item.type === "expense")
+
+    const expensesTotal = expenses.reduce((sum, transaction) => {
+        return sum + transaction.amount
+    }, 0)
+
+    return expensesTotal.toFixed((2))
 }
 
 function displayTransactions() {
@@ -138,5 +149,6 @@ form.addEventListener("submit", function(e) {
     addTransaction(transaction)
     displayTransactions()
     console.log(totalIncome())
+    console.log(totalExpenses())
     form.reset()
 })
