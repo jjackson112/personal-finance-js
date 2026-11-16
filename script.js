@@ -1,5 +1,7 @@
 // create transactions - array
 let transactions = []
+// create a unique ID counter - track next available ID
+let nextTransactionId = 1
 
 // create the transaction 
 function addTransaction(transaction) {
@@ -107,6 +109,7 @@ function displayTransactions() {
 
         // create new transaction object - use newly created variables
         const transaction = {
+            id: nextTransactionId++,
             merchant: merchant,
             date: date, 
             amount: amount,
