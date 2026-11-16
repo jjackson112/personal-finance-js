@@ -158,5 +158,11 @@ function formatTransactionAmount(transaction) {
 console.log(formatTransactionAmount(transactionSix))
 
 function displayTransactions() {
+    const transactionTitle = document.querySelector("h2")
     const transactionList = document.querySelector("#transaction-list")
+    
+    transactionTitle.style.color = "pink"
+    transactionList.textContent = transactions[0].merchant
+
 }
+    displayTransactions()
