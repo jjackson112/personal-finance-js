@@ -86,6 +86,11 @@ function totalExpenses() {
     return expensesTotal
 }
 
+// calculate balance
+function calculateBalance() {
+    return incomeTotal - expensesTotal
+}
+
 function displayTransactions() {
     // const transactionTitle = document.querySelector("#headings h2")
     const transactionList = document.querySelector("#transaction-list")
@@ -150,5 +155,6 @@ form.addEventListener("submit", function(e) {
     displayTransactions()
     console.log(totalIncome())
     console.log(totalExpenses())
+    console.log(calculateBalance())
     form.reset()
 })
