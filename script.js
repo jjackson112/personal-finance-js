@@ -66,8 +66,6 @@ function formatTransactionAmount(transaction) {
 function displayTransactions() {
     // const transactionTitle = document.querySelector("#headings h2")
     const transactionList = document.querySelector("#transaction-list")
-    const editTransaction = document.querySelector("#edit-btn")
-    const deleteTransaction = document.querySelector("#delete-btn")
     
     // transactionTitle.style.color = "green"
     // transactionList.textContent = transactions[0].merchant
