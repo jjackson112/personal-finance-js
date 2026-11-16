@@ -1,95 +1,5 @@
-// create an object with sample data
-
-const transactionOne = {
-    id: 1,
-    merchant: "Kroger",
-    date: "2026-11-11", // YYYY-MM-DD format
-    category: "Groceries",
-    amount: 85.50,
-    type: "expense",
-    account: "Checking",
-    notes: "random",
-    tag: "groceries"
-}
-
-const transactionTwo = {
-    id: 2,
-    merchant: "Walmart",
-    date: "2026-11-03",
-    category: "Groceries",
-    amount: 35.59,
-    type: "expense",
-    account: "Checking",
-    notes: "random",
-    tag: "groceries"
-}
-
-const transactionThree = {
-    id: 3,
-    merchant: "Landlord",
-    date: "2026-11-01", 
-    category: "Rent",
-    amount: 1500.19,
-    type: "expense",
-    account: "Checking",
-    notes: "random",
-    tag: "rent"
-}
-
-const transactionFour = {
-    id: 4,
-    merchant: "Spotify",
-    date: "2026-11-01", 
-    category: "Music",
-    amount: 10.99,
-    type: "expense",
-    account: "Checking",
-    notes: "beats",
-    tag: "music subscription"
-}
-
-const transactionFive = {
-    id: 5,
-    merchant: "Google",
-    date: "2026-11-01", 
-    category: "Cloud Service",
-    amount: 0.99,
-    type: "expense",
-    account: "Checking",
-    notes: "cloud",
-    tag: "cloud subscription"
-}
-
-const transactionSix = {
-    id: 6,
-    merchant: "Employer",
-    date: "2026-10-30", 
-    category: "Income",
-    amount: 1900.43,
-    type: "income",
-    account: "Checking",
-    notes: "cloud",
-    tag: "paycheck"
-}
-
-// testing
-console.log(transactionOne.amount)
-console.log(transactionTwo.category)
-console.log(transactionThree.notes)
-console.log(transactionFive.category)
-
 // create transactions - array
-let transactions = [transactionOne, transactionTwo, transactionThree, transactionFour]
-
-console.log(transactions[1].merchant)
-console.log(transactions[2].amount)
-console.log(transactions[0].date)
-
-// push() - add 4th transaction to existing transactions array
-// const newTransactions = transactions.push(transactionFour)
-
-// console.log(newTransactions)
-// console.log(transactions)
+let transactions = []
 
 // create the transaction 
 function addTransaction(transaction) {
@@ -105,9 +15,6 @@ function addTransaction(transaction) {
 
     return false
 }
-
-// addTransaction(transactionFive)
-// addTransaction(transactionFive)
 
 // console.log(transactions.length) // to check some()
 
