@@ -64,10 +64,12 @@ function formatTransactionAmount(transaction) {
 // console.log(formatTransactionAmount(transactionSix))
 
 function displayTransactions() {
-    const transactionTitle = document.querySelector("h2")
+    // const transactionTitle = document.querySelector("#headings h2")
     const transactionList = document.querySelector("#transaction-list")
+    const editTransaction = document.querySelector("#edit-btn")
+    const deleteTransaction = document.querySelector("#delete-btn")
     
-    transactionTitle.style.color = "green"
+    // transactionTitle.style.color = "green"
     // transactionList.textContent = transactions[0].merchant
 
     // prevent duplicates
@@ -75,6 +77,7 @@ function displayTransactions() {
 
     transactions.forEach((transaction) => {
         const singleTransaction = document.createElement("p")
+
         singleTransaction.textContent = `${transaction.merchant}: ${formatTransactionAmount(transaction)}`
         transactionList.append(singleTransaction)
 
@@ -119,7 +122,7 @@ function displayTransactions() {
             tag: tag
         }
 
-        console.log(transaction)
+        // console.log(transaction)
         // console.log(nextTransactionId)
 
         addTransaction(transaction)
