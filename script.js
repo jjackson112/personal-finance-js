@@ -187,5 +187,9 @@ function displayTransactions() {
         const merchant = merchantInput.value
         const amount = Number(amountInput.value)
 
-        console.log(merchant, typeof amount)
+        // if user selects expense or income
+        const typeInput = document.querySelector('input[name="type"]:checked')
+        const type = typeInput.value
+
+        console.log(merchant, typeof amount, type)
     })
