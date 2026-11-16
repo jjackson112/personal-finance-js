@@ -164,11 +164,12 @@ function displayTransactions() {
     transactionTitle.style.color = "pink"
     // transactionList.textContent = transactions[0].merchant
 
+    // prevent duplicates
     transactionList.textContent = ""
-    
+
     transactions.forEach((transaction) => {
         const singleTransaction = document.createElement("p")
-        singleTransaction.textContent = transaction.merchant
+        singleTransaction.textContent = `${transaction.merchant}: ${formatTransactionAmount(transaction)}`
         transactionList.append(singleTransaction)
 
         console.log(transaction)
