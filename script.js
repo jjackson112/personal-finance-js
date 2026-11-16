@@ -191,5 +191,17 @@ function displayTransactions() {
         const typeInput = document.querySelector('input[name="type"]:checked')
         const type = typeInput.value
 
+        // create new transaction object - use newly created variables
+        const transaction = {
+            merchant: merchant,
+            date: "", 
+            category: "",
+            amount: amount,
+            type: type,
+            account: "",
+            notes: "",
+            tag: ""
+        }
+
         console.log(merchant, typeof amount, type)
     })
