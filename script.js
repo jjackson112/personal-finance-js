@@ -179,6 +179,11 @@ function displayTransactions() {
 
     // submit adding a transaction form
     const form = document.querySelector("#add-transaction-form")
+    const merchantInput = document.querySelector("#merchant")
+    const amountInput = document.querySelector("#amount")
+
     form.addEventListener("submit", function(e) {
         e.preventDefault()
+
+        console.log(merchantInput.value, amountInput.value)
     })
