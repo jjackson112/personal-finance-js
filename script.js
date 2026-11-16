@@ -27,10 +27,7 @@ function editTransaction(id, updates) {
     Object.assign(selectedTransaction, updates)
 }
 
-editTransaction(1, {
-    amount: 11.99,
-    notes: "one stop shop groceries"
-})
+// editTransaction(1, {amount: 11.99, notes: "one stop shop groceries"})
 
 console.log(transactions)
 
@@ -48,7 +45,7 @@ function deleteTransaction(id) {
     console.log(transactions)
 }
 
- deleteTransaction(2)
+// deleteTransaction()
 
 // using the type property + format transaction amount to return signed amount as a string
 function formatTransactionAmount(transaction) {
@@ -62,7 +59,7 @@ function formatTransactionAmount(transaction) {
     }
 }
 
-console.log(formatTransactionAmount(transactionSix))
+// console.log(formatTransactionAmount(transactionSix))
 
 function displayTransactions() {
     const transactionTitle = document.querySelector("h2")
@@ -120,5 +117,5 @@ function displayTransactions() {
             tag: tag
         }
 
-        console.log(merchant, typeof amount, type)
+        console.log(transaction)
     })
