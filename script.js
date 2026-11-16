@@ -183,6 +183,9 @@ function displayTransactions() {
     const dateInput = document.querySelector("#date")
     const amountInput = document.querySelector("#amount")
     const categoryInput = document.querySelector("#category-dropdown")
+    const accountInput = document.querySelector("#account-dropdown")
+    const notesInput = document.querySelector("#notes")
+    const tagInput = document.querySelector("#tag")
 
     form.addEventListener("submit", function(e) {
         e.preventDefault()
@@ -190,6 +193,9 @@ function displayTransactions() {
         const date = dateInput.value
         const amount = Number(amountInput.value)
         const category = categoryInput.value
+        const account = accountInput.value
+        const notes = notesInput.value
+        const tag = tagInput.value
 
         // if user selects expense or income
         const typeInput = document.querySelector('input[name="type"]:checked')
@@ -202,9 +208,9 @@ function displayTransactions() {
             amount: amount,
             category: category,
             type: type,
-            account: "",
-            notes: "",
-            tag: ""
+            account: account,
+            notes: notes,
+            tag: tag
         }
 
         console.log(merchant, typeof amount, type)
