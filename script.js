@@ -68,7 +68,11 @@ function formatTransactionAmount(transaction) {
 function totalIncome() {
     const income = transactions.filter(item => item.type === "income")
 
-    return income
+    const incomeTotal = income.reduce((sum, transaction) => {
+        return sum + transaction.amount
+    }, 0)
+
+    return incomeTotal.toFixed((2))
 }
 
 function displayTransactions() {
