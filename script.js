@@ -184,6 +184,8 @@ function displayTransactions() {
 
     form.addEventListener("submit", function(e) {
         e.preventDefault()
+        const merchant = merchantInput.value
+        const amount = Number(amountInput.value)
 
-        console.log(merchantInput.value, amountInput.value)
+        console.log(merchant, typeof amount)
     })
