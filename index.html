@@ -35,6 +35,14 @@
                 type="text"
                 placeholder="e.g. Kroger"
             >
+
+            <label for="date">Date</label>
+            <input
+                id="date"
+                type="date"
+                required
+            >
+
             <label for="amount">Amount</label>
             <input 
                 id="amount"
@@ -42,6 +50,15 @@
                 placeholder="e.g. 43.09"
                 step="0.01"
             >
+
+            <label for="category-dropdown">Category</label>
+            <select id="category-dropdown" name="category">
+                <option value="transportation">Car Payment</option>
+                <option value="groceries">Groceries</option>
+                <option value="rent">Rent</option>
+                <option value="subscriptions">Subscriptions</option>
+            </select>
+
             <label for="expense">Expense</label>
             <input
                 id="expense"
@@ -50,6 +67,7 @@
                 value="expense"
                 checked="true"
             >
+
             <label for="income">Income</label>
             <input
                 id="income"
@@ -57,6 +75,23 @@
                 name="type"
                 value="income"
             >
+
+            <label for="account">Account</label>
+            <select id="account-dropdown" name="account">
+                <option value="checking">Checking</option>
+                <option value="savings">Savings</option>
+            </select>
+
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" placeholder="optional"></textarea>
+
+            <label for="tag">Tag</label>
+            <input
+                id="tag"
+                type="text"
+                placeholder="e.g. groceries"
+            >
+
             <button type="submit">Add Transaction</button>
         </form>
     </section>

@@ -180,12 +180,16 @@ function displayTransactions() {
     // submit adding a transaction form
     const form = document.querySelector("#add-transaction-form")
     const merchantInput = document.querySelector("#merchant")
+    const dateInput = document.querySelector("#date")
     const amountInput = document.querySelector("#amount")
+    const categoryInput = document.querySelector("#category-dropdown")
 
     form.addEventListener("submit", function(e) {
         e.preventDefault()
         const merchant = merchantInput.value
+        const date = dateInput.value
         const amount = Number(amountInput.value)
+        const category = categoryInput.value
 
         // if user selects expense or income
         const typeInput = document.querySelector('input[name="type"]:checked')
@@ -194,9 +198,9 @@ function displayTransactions() {
         // create new transaction object - use newly created variables
         const transaction = {
             merchant: merchant,
-            date: "", 
-            category: "",
+            date: date, 
             amount: amount,
+            category: category,
             type: type,
             account: "",
             notes: "",
