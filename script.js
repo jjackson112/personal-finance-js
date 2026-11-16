@@ -176,3 +176,9 @@ function displayTransactions() {
     })
 }
     displayTransactions()
+
+    // submit adding a transaction form
+    const form = document.querySelector("#add-transaction-form")
+    form.addEventListener("submit", function(e) {
+        e.preventDefault()
+    })
