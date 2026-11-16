@@ -81,7 +81,6 @@ function displayTransactions() {
         console.log(transaction)
     })
 }
-    displayTransactions()
 
     // submit adding a transaction form
     const form = document.querySelector("#add-transaction-form")
@@ -121,6 +120,9 @@ function displayTransactions() {
         }
 
         console.log(transaction)
+        // console.log(nextTransactionId)
 
+        addTransaction(transaction)
+        displayTransactions()
         form.reset()
     })
