@@ -162,9 +162,13 @@ function displayTransactions() {
     const transactionList = document.querySelector("#transaction-list")
     
     transactionTitle.style.color = "pink"
-    transactionList.textContent = transactions[0].merchant
+    // transactionList.textContent = transactions[0].merchant
 
     transactions.forEach((transaction) => {
+        const singleTransaction = document.createElement("p")
+        singleTransaction.textContent = transaction.merchant
+        transactionList.append(singleTransaction)
+
         console.log(transaction)
     })
 }
