@@ -72,7 +72,7 @@ function totalIncome() {
         return sum + transaction.amount
     }, 0)
 
-    return incomeTotal.toFixed((2))
+    return incomeTotal
 }
 
 // calculate total expenses
@@ -83,7 +83,7 @@ function totalExpenses() {
         return sum + transaction.amount
     }, 0)
 
-    return expensesTotal.toFixed((2))
+    return expensesTotal
 }
 
 function displayTransactions() {
