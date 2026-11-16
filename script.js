@@ -88,7 +88,10 @@ function totalExpenses() {
 
 // calculate balance
 function calculateBalance() {
-    return incomeTotal - expensesTotal
+    const credit = totalIncome()
+    const debit = totalExpenses()
+
+    return credit - debit
 }
 
 function displayTransactions() {
