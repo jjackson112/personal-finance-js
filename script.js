@@ -118,4 +118,6 @@ function displayTransactions() {
         }
 
         console.log(transaction)
+
+        form.reset()
     })
