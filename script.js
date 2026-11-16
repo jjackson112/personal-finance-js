@@ -164,5 +164,8 @@ function displayTransactions() {
     transactionTitle.style.color = "pink"
     transactionList.textContent = transactions[0].merchant
 
+    transactions.forEach((transaction) => {
+        console.log(transaction)
+    })
 }
     displayTransactions()
