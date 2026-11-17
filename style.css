@@ -1,0 +1,8 @@
+.summary-value {
+    transition: transform 250ms ease, opacity 250ms ease;
+}
+
+.summary-value.slide-out {
+    transform: translateY(-10px);
+    opacity: 0;
+}
