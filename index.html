@@ -32,9 +32,9 @@
 
     </section>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mt-8">
 
-        <section class="bg-white p-6 rounded-xl shadow-sm" id="add-transaction">
+        <section class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm" id="add-transaction">
             <form class="flex flex-col gap-3" id="add-transaction-form">
                 <h3 class="text-emerald-800 font-semibold text-lg m-4">Add Transaction</h3>
                 <label class="text-gray-500 font-medium" for="merchant">Merchant</label>
@@ -120,7 +120,7 @@
             </form>
         </section>
 
-        <section class="bg-white p-6 rounded-xl shadow-sm" id="recent-transactions">
+        <section class="lg:col-span-3 bg-white p-6 rounded-xl shadow-sm" id="recent-transactions">
             <h3 class="text-emerald-800 font-semibold text-lg m-4">Recent Transactions</h3>
             <div id="transaction-list"></div>
         </section>
