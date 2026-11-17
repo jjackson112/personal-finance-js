@@ -50,20 +50,6 @@ function deleteTransaction(id) {
 
 // deleteTransaction()
 
-// using the type property + format transaction amount to return signed amount as a string
-function formatTransactionAmount(transaction) {
-    // return a string with a signed amount
-    const amount = transaction.amount
-
-    if (transaction.type === "expense") {
-        return (`-${amount}`)
-    } else {
-        return (`+${amount}`)
-    }
-}
-
-// console.log(formatTransactionAmount(transactionSix))
-
 // calculate total income
 function totalIncome() {
     const income = transactions.filter(item => item.type === "income")
@@ -135,6 +121,26 @@ function displayTransactions() {
         console.log(transaction)
     })
 }
+
+// using the type property + format transaction amount to return signed amount as a string
+function formatTransactionAmount(transaction) {
+    // return a string with a signed amount
+    const amount = transaction.amount
+
+    // currency format
+    const currencyFormatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD"
+    })
+    
+    if (transaction.type === "expense") {
+        return (`-${currencyFormatter(amount)}`)
+    } else {
+        return (`+${currencyFormatter(amount)}`)
+    }
+}
+
+// console.log(formatTransactionAmount(transactionSix))
 
 // submit adding a transaction form
 const form = document.querySelector("#add-transaction-form")
