@@ -105,9 +105,21 @@ function displayTransactions() {
     transactionList.textContent = ""
 
     transactions.forEach((transaction) => {
-        const singleTransaction = document.createElement("p")
+        const singleTransaction = document.createElement("div")
+        const merchantName = document.createElement("p")
+        const transactionAmount = document.createElement("p")
 
-        singleTransaction.textContent = `${transaction.merchant}: ${formatTransactionAmount(transaction)}`
+        // use classList property to add, remove, or toggle CSS classes
+        singleTransaction.classList.add(
+            "p-4",
+            "border-b",
+            "border-gray-200",
+            "text-gray-700"
+        )
+        
+        merchantName.textContent = transaction.merchant
+        transactionAmount.textContent = formatTransactionAmount(transaction)
+
         transactionList.append(singleTransaction)
 
         console.log(transaction)
