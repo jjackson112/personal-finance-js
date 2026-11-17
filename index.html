@@ -6,44 +6,55 @@
     <title>Personal Finance Tracker</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/iconmonstr-coin-thin.svg" type="image/coin-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="script.js" defer></script>
 </head>
 
-<body>
-    <section id="headings">
-        <h1>Personal Finance</h1>
-        <h2>Track your money in one place</h2>
+<body class="bg-gray-50 min-h-screen p-4 md:p-8">
+    <section class="pb-6" id="headings">
+        <h1 class="text-emerald-900 font-bold text-2xl">Personal Finance</h1>
+        <h2 class="text-emerald-700 font-semibold text-xl">Track your money in one place</h2>
     </section>
 
-    <section id="transactions">
-
-        <div class="container">
-            <h3>Income</h3>
-            <h3>Expenses</h3>
-            <h3>Balance</h3>
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="transactions">
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-gray-500 font-medium">Income</h3>
         </div>
 
-        <h3>Recent Transactions</h3>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-gray-500 font-medium">Expenses</h3>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-gray-500 font-medium">Balance</h3>
+        </div>
+
+    </section>
+
+    <section class="mt-8" id="recent-transactions">
+        <h3 class="text-emerald-500 font-semibold text-lg">Recent Transactions</h3>
         <div id="transaction-list"></div>
     </section>
 
     <section id="add-transaction">
-        <form id="add-transaction-form">
-            <label for="merchant">Merchant</label>
+        <form class="w-full max-w-sm" id="add-transaction-form">
+            <label class="text-gray-500 font-medium" for="merchant">Merchant</label>
             <input 
+                class="border-solid"
                 id="merchant"
                 type="text"
                 placeholder="e.g. Kroger"
             >
 
-            <label for="date">Date</label>
+            <label class="text-gray-500 font-medium" for="date">Date</label>
             <input
                 id="date"
                 type="date"
                 required
             >
 
-            <label for="amount">Amount</label>
+            <label class="text-gray-500 font-medium" for="amount">Amount</label>
             <input 
                 id="amount"
                 type="number"
@@ -51,7 +62,7 @@
                 step="0.01"
             >
 
-            <label for="category-dropdown">Category</label>
+            <label class="text-gray-500 font-medium" for="category-dropdown">Category</label>
             <select id="category-dropdown" name="category">
                 <option value="transportation">Car Payment</option>
                 <option value="groceries">Groceries</option>
@@ -60,7 +71,7 @@
                 <option value="subscriptions">Subscriptions</option>
             </select>
 
-            <label for="expense">Expense</label>
+            <label class="text-gray-500 font-medium" for="expense">Expense</label>
             <input
                 id="expense"
                 type="radio"
@@ -69,7 +80,7 @@
                 checked="true"
             >
 
-            <label for="income">Income</label>
+            <label class="text-gray-500 font-medium" for="income">Income</label>
             <input
                 id="income"
                 type="radio"
@@ -77,23 +88,29 @@
                 value="income"
             >
 
-            <label for="account">Account</label>
+            <label class="text-gray-500 font-medium" for="account">Account</label>
             <select id="account-dropdown" name="account">
                 <option value="checking">Checking</option>
                 <option value="savings">Savings</option>
             </select>
 
-            <label for="notes">Notes</label>
+            <label class="text-gray-500 font-medium" for="notes">Notes</label>
             <textarea id="notes" name="notes" placeholder="optional"></textarea>
 
-            <label for="tag">Tag</label>
+            <label class="text-gray-500 font-medium" for="tag">Tag</label>
             <input
                 id="tag"
                 type="text"
                 placeholder="e.g. groceries"
             >
 
-            <button id="add-btn" type="submit">Add Transaction</button>
+            <button 
+                class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-full"
+                id="add-btn" 
+                type="submit"
+            >
+                Add Transaction
+            </button>
         </form>
     </section>
 </body>
