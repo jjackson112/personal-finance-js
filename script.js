@@ -50,47 +50,6 @@ function deleteTransaction(id) {
 
 // deleteTransaction()
 
-// calculate total income
-function totalIncome() {
-    const income = transactions.filter(item => item.type === "income")
-
-    const incomeTotal = income.reduce((sum, transaction) => {
-        return sum + transaction.amount
-    }, 0)
-
-    return incomeTotal
-}
-
-// calculate total expenses
-function totalExpenses() {
-    const expenses = transactions.filter(item => item.type === "expense")
-
-    const expensesTotal = expenses.reduce((sum, transaction) => {
-        return sum + transaction.amount
-    }, 0)
-
-    return expensesTotal
-}
-
-// calculate balance
-function calculateBalance() {
-    const credit = totalIncome()
-    const debit = totalExpenses()
-
-    return credit - debit
-}
-
-// update dashboard with dynamic summary cards
-function updateDashboard() {
-    const incomeSummary = document.querySelector("#income-summary")
-    const expensesSummary = document.querySelector("#expenses-summary")
-    const balanceSummary = document.querySelector("#balance-summary")
-
-    incomeSummary.textContent = totalIncome()
-    expensesSummary.textContent = totalExpenses()
-    balanceSummary.textContent = calculateBalance()
-}
-
 function displayTransactions() {
     // const transactionTitle = document.querySelector("#headings h2")
     const transactionList = document.querySelector("#transaction-list")
@@ -153,6 +112,47 @@ function formatTransactionAmount(transaction) {
 
 // console.log(formatTransactionAmount(transactionSix))
 
+// calculate total income
+function totalIncome() {
+    const income = transactions.filter(item => item.type === "income")
+
+    const incomeTotal = income.reduce((sum, transaction) => {
+        return sum + transaction.amount
+    }, 0)
+
+    return incomeTotal
+}
+
+// calculate total expenses
+function totalExpenses() {
+    const expenses = transactions.filter(item => item.type === "expense")
+
+    const expensesTotal = expenses.reduce((sum, transaction) => {
+        return sum + transaction.amount
+    }, 0)
+
+    return expensesTotal
+}
+
+// calculate balance
+function calculateBalance() {
+    const credit = totalIncome()
+    const debit = totalExpenses()
+
+    return credit - debit
+}
+
+// update dashboard with dynamic summary cards
+function updateDashboard() {
+    const incomeSummary = document.querySelector("#income-summary")
+    const expensesSummary = document.querySelector("#expenses-summary")
+    const balanceSummary = document.querySelector("#balance-summary")
+
+    incomeSummary.textContent = totalIncome()
+    expensesSummary.textContent = totalExpenses()
+    balanceSummary.textContent = calculateBalance()
+}
+
 // submit adding a transaction form
 const form = document.querySelector("#add-transaction-form")
 const merchantInput = document.querySelector("#merchant")
@@ -195,6 +195,7 @@ form.addEventListener("submit", function(e) {
 
     addTransaction(transaction)
     displayTransactions()
+    updateDashboard()
     console.log(totalIncome())
     console.log(totalExpenses())
     console.log(calculateBalance())
