@@ -111,6 +111,9 @@ function displayTransactions() {
 
         // use classList property to add, remove, or toggle CSS classes
         singleTransaction.classList.add(
+            "flex",
+            "items-center",
+            "justify-between",
             "p-4",
             "border-b",
             "border-gray-200",
