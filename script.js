@@ -156,7 +156,7 @@ function updateDashboard() {
     incomeSummary.addEventListener("transitionend", function() {
         incomeSummary.textContent = currencyFormatter.format(totalIncome())
         incomeSummary.classList.remove("slide-out")
-    })
+    }, { once: true })
 
     expensesSummary.textContent = currencyFormatter.format(totalExpenses())
     balanceSummary.textContent = currencyFormatter.format(calculateBalance())
