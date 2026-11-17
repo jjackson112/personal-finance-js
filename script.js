@@ -4,6 +4,12 @@ let transactions = []
 // create a unique ID counter - track next available ID
 let nextTransactionId = 1
 
+// currency format - object, not a function
+const currencyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD"
+})
+
 // create the transaction 
 function addTransaction(transaction) {
     // check if id exists or not
@@ -50,6 +56,50 @@ function deleteTransaction(id) {
 
 // deleteTransaction()
 
+// calculate total income
+function totalIncome() {
+    const income = transactions.filter(item => item.type === "income")
+
+    const incomeTotal = income.reduce((sum, transaction) => {
+        return sum + transaction.amount
+    }, 0)
+
+    return incomeTotal
+}
+
+// calculate total expenses
+function totalExpenses() {
+    const expenses = transactions.filter(item => item.type === "expense")
+
+    const expensesTotal = expenses.reduce((sum, transaction) => {
+        return sum + transaction.amount
+    }, 0)
+
+    return expensesTotal
+}
+
+// calculate balance
+function calculateBalance() {
+    const credit = totalIncome()
+    const debit = totalExpenses()
+
+    return credit - debit
+}
+
+// using the type property + format transaction amount to return signed amount as a string
+function formatTransactionAmount(transaction) {
+    // return a string with a signed amount
+    const amount = transaction.amount
+    
+    if (transaction.type === "expense") {
+        return `-${currencyFormatter.format(amount)}`
+    } else {
+        return `+${currencyFormatter.format(amount)}`
+    }
+}
+
+// console.log(formatTransactionAmount(transactionSix))
+
 function displayTransactions() {
     // const transactionTitle = document.querySelector("#headings h2")
     const transactionList = document.querySelector("#transaction-list")
@@ -92,65 +142,15 @@ function displayTransactions() {
     })
 }
 
-// using the type property + format transaction amount to return signed amount as a string
-function formatTransactionAmount(transaction) {
-    // return a string with a signed amount
-    const amount = transaction.amount
-
-    // currency format - object, not a function
-    const currencyFormatter = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD"
-    })
-    
-    if (transaction.type === "expense") {
-        return `-${currencyFormatter.format(amount)}`
-    } else {
-        return `+${currencyFormatter.format(amount)}`
-    }
-}
-
-// console.log(formatTransactionAmount(transactionSix))
-
-// calculate total income
-function totalIncome() {
-    const income = transactions.filter(item => item.type === "income")
-
-    const incomeTotal = income.reduce((sum, transaction) => {
-        return sum + transaction.amount
-    }, 0)
-
-    return incomeTotal
-}
-
-// calculate total expenses
-function totalExpenses() {
-    const expenses = transactions.filter(item => item.type === "expense")
-
-    const expensesTotal = expenses.reduce((sum, transaction) => {
-        return sum + transaction.amount
-    }, 0)
-
-    return expensesTotal
-}
-
-// calculate balance
-function calculateBalance() {
-    const credit = totalIncome()
-    const debit = totalExpenses()
-
-    return credit - debit
-}
-
 // update dashboard with dynamic summary cards
 function updateDashboard() {
     const incomeSummary = document.querySelector("#income-summary")
     const expensesSummary = document.querySelector("#expenses-summary")
     const balanceSummary = document.querySelector("#balance-summary")
 
-    incomeSummary.textContent = totalIncome()
-    expensesSummary.textContent = totalExpenses()
-    balanceSummary.textContent = calculateBalance()
+    incomeSummary.textContent = currencyFormatter.format(totalIncome())
+    expensesSummary.textContent = currencyFormatter.format(totalExpenses())
+    balanceSummary.textContent = currencyFormatter.format(calculateBalance())
 }
 
 // submit adding a transaction form
@@ -194,10 +194,7 @@ form.addEventListener("submit", function(e) {
     // console.log(nextTransactionId)
 
     addTransaction(transaction)
-    displayTransactions()
     updateDashboard()
-    console.log(totalIncome())
-    console.log(totalExpenses())
-    console.log(calculateBalance())
+    displayTransactions()
     form.reset()
 })
