@@ -127,16 +127,16 @@ function formatTransactionAmount(transaction) {
     // return a string with a signed amount
     const amount = transaction.amount
 
-    // currency format
+    // currency format - object, not a function
     const currencyFormatter = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD"
     })
     
     if (transaction.type === "expense") {
-        return (`-${currencyFormatter(amount)}`)
+        return `-${currencyFormatter.format(amount)}`
     } else {
-        return (`+${currencyFormatter(amount)}`)
+        return `+${currencyFormatter.format(amount)}`
     }
 }
 
