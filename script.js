@@ -80,6 +80,17 @@ function calculateBalance() {
     return credit - debit
 }
 
+// update dashboard with dynamic summary cards
+function updateDashboard() {
+    const incomeSummary = document.querySelector("#income-summary")
+    const expensesSummary = document.querySelector("#expenses-summary")
+    const balanceSummary = document.querySelector("#balance-summary")
+
+    incomeSummary.textContent = totalIncome()
+    expensesSummary.textContent = totalExpenses()
+    balanceSummary.textContent = calculateBalance()
+}
+
 function displayTransactions() {
     // const transactionTitle = document.querySelector("#headings h2")
     const transactionList = document.querySelector("#transaction-list")
