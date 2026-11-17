@@ -32,87 +32,99 @@
 
     </section>
 
-    <section class="mt-8" id="recent-transactions">
-        <h3 class="text-emerald-500 font-semibold text-lg">Recent Transactions</h3>
-        <div id="transaction-list"></div>
-    </section>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
 
-    <section id="add-transaction">
-        <form class="w-full max-w-sm" id="add-transaction-form">
-            <label class="text-gray-500 font-medium" for="merchant">Merchant</label>
-            <input 
-                class="border-solid"
-                id="merchant"
-                type="text"
-                placeholder="e.g. Kroger"
-            >
+        <section class="bg-white p-6 rounded-xl shadow-sm" id="add-transaction">
+            <form class="flex flex-col gap-3" id="add-transaction-form">
+                <h3 class="text-emerald-800 font-semibold text-lg m-4">Add Transaction</h3>
+                <label class="text-gray-500 font-medium" for="merchant">Merchant</label>
+                <input 
+                    class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    id="merchant"
+                    type="text"
+                    placeholder="e.g. Kroger"
+                    required
+                >
 
-            <label class="text-gray-500 font-medium" for="date">Date</label>
-            <input
-                id="date"
-                type="date"
-                required
-            >
+                <label class="text-gray-500 font-medium" for="date">Date</label>
+                <input
+                    id="date"
+                    type="date"
+                    required
+                >
 
-            <label class="text-gray-500 font-medium" for="amount">Amount</label>
-            <input 
-                id="amount"
-                type="number"
-                placeholder="e.g. 43.09"
-                step="0.01"
-            >
+                <label class="text-gray-500 font-medium" for="amount">Amount</label>
+                <input 
+                    class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    id="amount"
+                    type="number"
+                    placeholder="e.g. 43.09"
+                    step="0.01"
+                >
 
-            <label class="text-gray-500 font-medium" for="category-dropdown">Category</label>
-            <select id="category-dropdown" name="category">
-                <option value="transportation">Car Payment</option>
-                <option value="groceries">Groceries</option>
-                <option value="income">Income</option>
-                <option value="rent">Rent</option>
-                <option value="subscriptions">Subscriptions</option>
-            </select>
+                <label class="text-gray-500 font-medium" for="category-dropdown">Category</label>
+                <select id="category-dropdown" name="category">
+                    <option value="transportation">Car Payment</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="income">Income</option>
+                    <option value="rent">Rent</option>
+                    <option value="subscriptions">Subscriptions</option>
+                </select>
 
-            <label class="text-gray-500 font-medium" for="expense">Expense</label>
-            <input
-                id="expense"
-                type="radio"
-                name="type"
-                value="expense"
-                checked="true"
-            >
+                <label class="text-gray-500 font-medium" for="expense">Expense</label>
+                <input
+                    id="expense"
+                    type="radio"
+                    name="type"
+                    value="expense"
+                    checked="true"
+                >
 
-            <label class="text-gray-500 font-medium" for="income">Income</label>
-            <input
-                id="income"
-                type="radio"
-                name="type"
-                value="income"
-            >
+                <label class="text-gray-500 font-medium" for="income">Income</label>
+                <input
+                    id="income"
+                    type="radio"
+                    name="type"
+                    value="income"
+                >
 
-            <label class="text-gray-500 font-medium" for="account">Account</label>
-            <select id="account-dropdown" name="account">
-                <option value="checking">Checking</option>
-                <option value="savings">Savings</option>
-            </select>
+                <label class="text-gray-500 font-medium" for="account-dropdown">Account</label>
+                <select id="account-dropdown" name="account">
+                    <option value="checking">Checking</option>
+                    <option value="savings">Savings</option>
+                </select>
 
-            <label class="text-gray-500 font-medium" for="notes">Notes</label>
-            <textarea id="notes" name="notes" placeholder="optional"></textarea>
+                <label class="text-gray-500 font-medium" for="notes">Notes</label>
+                <textarea 
+                    class="border border-gray-300 rounded-lg px-3 py-2"
+                    id="notes" 
+                    name="notes" 
+                    placeholder="optional">
+                </textarea>
 
-            <label class="text-gray-500 font-medium" for="tag">Tag</label>
-            <input
-                id="tag"
-                type="text"
-                placeholder="e.g. groceries"
-            >
+                <label class="text-gray-500 font-medium" for="tag">Tag</label>
+                <input
+                    class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    id="tag"
+                    type="text"
+                    placeholder="e.g. groceries"
+                >
 
-            <button 
-                class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-full"
-                id="add-btn" 
-                type="submit"
-            >
-                Add Transaction
-            </button>
-        </form>
-    </section>
+                <button 
+                    class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-full"
+                    id="add-btn" 
+                    type="submit"
+                >
+                    Add Transaction
+                </button>
+            </form>
+        </section>
+
+        <section class="bg-white p-6 rounded-xl shadow-sm" id="recent-transactions">
+            <h3 class="text-emerald-800 font-semibold text-lg m-4">Recent Transactions</h3>
+            <div id="transaction-list"></div>
+        </section>
+    </div>
 </body>
 
 </html>
