@@ -122,6 +122,12 @@ function displayTransactions() {
         
         merchantName.textContent = transaction.merchant
         transactionAmount.textContent = formatTransactionAmount(transaction)
+        
+        if (transaction.type === "income") {
+            transactionAmount.classList.add("text-emerald-600")
+        } else {
+            transactionAmount.classList.add("text-red-600")
+        }
 
         transactionList.append(singleTransaction)
 
