@@ -10,34 +10,30 @@
         <script src="script.js" defer></script>
     </head>
 
-    <main class="max-w-7xl mx-auto">
-        <body class="bg-gray-50 min-h-screen p-4 md:p-8">
+    <body class="bg-gray-50 min-h-screen p-4 md:p-8">
+        <main class="max-w-7xl mx-auto">
             <section class="pb-6" id="headings">
                 <h1 class="text-emerald-900 font-bold text-2xl">Personal Finance</h1>
                 <h2 class="text-emerald-700 font-semibold text-xl">Track your money in one place</h2>
             </section>
 
             <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="transactions">
-
                 <div class="bg-white p-6 rounded-xl shadow-sm">
                     <h3 class="text-gray-500 font-medium">Income</h3>
                 </div>
-
                 <div class="bg-white p-6 rounded-xl shadow-sm">
                     <h3 class="text-gray-500 font-medium">Expenses</h3>
                 </div>
-
                 <div class="bg-white p-6 rounded-xl shadow-sm">
                     <h3 class="text-gray-500 font-medium">Balance</h3>
                 </div>
-
             </section>
 
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mt-8">
-
                 <section class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm" id="add-transaction">
                     <form class="flex flex-col gap-3" id="add-transaction-form">
                         <h3 class="text-emerald-800 font-semibold text-lg m-4">Add Transaction</h3>
+                        
                         <label class="text-gray-500 font-medium" for="merchant">Merchant</label>
                         <input 
                             class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -46,14 +42,14 @@
                             placeholder="e.g. Kroger"
                             required
                         >
-
+                        
                         <label class="text-gray-500 font-medium" for="date">Date</label>
                         <input
                             id="date"
                             type="date"
                             required
                         >
-
+                        
                         <label class="text-gray-500 font-medium" for="amount">Amount</label>
                         <input 
                             class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -62,7 +58,7 @@
                             placeholder="e.g. 43.09"
                             step="0.01"
                         >
-
+                        
                         <label class="text-gray-500 font-medium" for="category-dropdown">Category</label>
                         <select id="category-dropdown" name="category">
                             <option value="transportation">Car Payment</option>
@@ -71,30 +67,42 @@
                             <option value="rent">Rent</option>
                             <option value="subscriptions">Subscriptions</option>
                         </select>
+                        
+                        <fieldset class="flex gap-6">
+                            <legend class="text-gray-500 font-medium mb-2">
+                                Transaction Type
+                            </legend>
 
-                        <label class="text-gray-500 font-medium" for="expense">Expense</label>
-                        <input
-                            id="expense"
-                            type="radio"
-                            name="type"
-                            value="expense"
-                            checked="true"
-                        >
-
-                        <label class="text-gray-500 font-medium" for="income">Income</label>
-                        <input
-                            id="income"
-                            type="radio"
-                            name="type"
-                            value="income"
-                        >
-
+                            <label class="flex items-center gap-2 text-gray-500 font-medium" for="expense">
+                                <input
+                                    id="expense"
+                                    type="radio"
+                                    name="type"
+                                    value="expense"
+                                    class="accent-emerald-600"
+                                    checked
+                                >
+                                Expense
+                            </label>
+                        
+                            <label class="flex items-center gap-2 text-gray-500 font-medium" for="income">
+                                <input
+                                    id="income"
+                                    type="radio"
+                                    name="type"
+                                    value="income"
+                                    class="accent-emerald-600"
+                                >
+                                Income
+                            </label>
+                        </fieldset>
+                        
                         <label class="text-gray-500 font-medium" for="account-dropdown">Account</label>
                         <select id="account-dropdown" name="account">
                             <option value="checking">Checking</option>
                             <option value="savings">Savings</option>
                         </select>
-
+                        
                         <label class="text-gray-500 font-medium" for="notes">Notes</label>
                         <textarea 
                             class="border border-gray-300 rounded-lg px-3 py-2"
@@ -102,7 +110,7 @@
                             name="notes" 
                             placeholder="optional">
                         </textarea>
-
+                        
                         <label class="text-gray-500 font-medium" for="tag">Tag</label>
                         <input
                             class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -110,7 +118,6 @@
                             type="text"
                             placeholder="e.g. groceries"
                         >
-
                         <button 
                             class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-full"
                             id="add-btn" 
@@ -121,11 +128,12 @@
                     </form>
                 </section>
 
-                <section class="lg:col-span-3 bg-white p-6 rounded-xl shadow-sm" id="recent-transactions">
+                <section class="lg:col-span-3 self-start bg-white p-6 rounded-xl shadow-sm" id="recent-transactions">
                     <h3 class="text-emerald-800 font-semibold text-lg m-4">Recent Transactions</h3>
                     <div id="transaction-list"></div>
                 </section>
+
             </div>
-        </body>
-    </main>
+        </main>
+    </body>
 </html>
