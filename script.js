@@ -153,12 +153,14 @@ function updateDashboard() {
     expensesSummary.classList.add("slide-out")
     balanceSummary.classList.add("slide-out")
 
-    incomeSummary.textContent = currencyFormatter.format(totalIncome())
+    incomeSummary.addEventListener("transitionend", function() {
+        incomeSummary.textContent = currencyFormatter.format(totalIncome())
+        incomeSummary.classList.remove("slide-out")
+    })
+
     expensesSummary.textContent = currencyFormatter.format(totalExpenses())
     balanceSummary.textContent = currencyFormatter.format(calculateBalance())
 
-    // remove slide-out for new value
-    incomeSummary.classList.remove("slide-out")
     expensesSummary.classList.remove("slide-out")
     balanceSummary.classList.remove("slide-out")
 }
