@@ -129,6 +129,7 @@ function displayTransactions() {
             transactionAmount.classList.add("text-red-600")
         }
 
+        singleTransaction.append(merchantName, transactionAmount)
         transactionList.append(singleTransaction)
 
         console.log(transaction)
