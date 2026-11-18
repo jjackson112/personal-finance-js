@@ -150,11 +150,11 @@ function animateSummary(element, newValue) {
     element.addEventListener("transitionend", function(e) {
         // CSS animates 2 properties - transform + opacity, but JS callback should respond to only one
         // guard clause or an early return - less nested
-        if  (e.properyName !== "transform") return 
+        if  (e.propertyName !== "transform") return 
 
         element.textContent = currencyFormatter.format(newValue)
         element.classList.remove("slide-out")
-    }, { once: true })
+    })
 }
 
 // update dashboard with dynamic summary cards
