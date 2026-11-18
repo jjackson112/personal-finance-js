@@ -145,9 +145,7 @@ function displayTransactions() {
 // CSS animation for summary totals - parameters are (element - HTML, newValue - number)
 function animateSummary(element, newValue) {
     // use classList to activate the animations
-    incomeSummary.classList.add("slide-out")
-    expensesSummary.classList.add("slide-out")
-    balanceSummary.classList.add("slide-out")
+    element.classList.add("slide-out")
 
     incomeSummary.addEventListener("transitionend", function() {
         incomeSummary.textContent = currencyFormatter.format(totalIncome())
