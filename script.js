@@ -142,12 +142,8 @@ function displayTransactions() {
     })
 }
 
-// update dashboard with dynamic summary cards
-function updateDashboard() {
-    const incomeSummary = document.querySelector("#income-summary")
-    const expensesSummary = document.querySelector("#expenses-summary")
-    const balanceSummary = document.querySelector("#balance-summary")
-
+// CSS animation for summary totals
+function animateSummary() {
     // use classList to activate the animations
     incomeSummary.classList.add("slide-out")
     expensesSummary.classList.add("slide-out")
@@ -158,11 +154,26 @@ function updateDashboard() {
         incomeSummary.classList.remove("slide-out")
     }, { once: true })
 
-    expensesSummary.textContent = currencyFormatter.format(totalExpenses())
-    balanceSummary.textContent = currencyFormatter.format(calculateBalance())
+    expensesSummary.addEventListener("transitionend", function() {
+        expensesSummary.textContent = currencyFormatter.format(totalExpenses())
+        expensesSummary.classList.remove("slide-out")
+    }, { once: true })
+    
+    balanceSummary.addEventListener("transitionend", function() {
+        balanceSummary.textContent = currencyFormatter.format(calculateBalance())
+        balanceSummary.classList.remove("slide-out")
+    }, { once: true })
+}
 
-    expensesSummary.classList.remove("slide-out")
-    balanceSummary.classList.remove("slide-out")
+// update dashboard with dynamic summary cards
+function updateDashboard() {
+    const incomeSummary = document.querySelector("#income-summary")
+    const expensesSummary = document.querySelector("#expenses-summary")
+    const balanceSummary = document.querySelector("#balance-summary")
+
+    animateSummary(incomeSummary, totalIncome()) // element, newValue
+    animateSummary(expensesSummary, totalExpenses())
+    animateSummary(balanceSummary, calculateBalance())
 }
 
 // submit adding a transaction form
