@@ -213,3 +213,13 @@ form.addEventListener("submit", function(e) {
     displayTransactions()
     form.reset()
 })
+
+// filter transactions by type + category
+    const filterTransactions = document.querySelector("#transaction-filter")
+
+    filterTransactions.addEventListener("change", function(e) {
+    const selectedType = e.target.value
+
+    console.log(selectedType)
+    })
+ 
