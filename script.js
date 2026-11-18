@@ -142,8 +142,8 @@ function displayTransactions() {
     })
 }
 
-// CSS animation for summary totals
-function animateSummary() {
+// CSS animation for summary totals - parameters are (element - HTML, newValue - number)
+function animateSummary(element, newValue) {
     // use classList to activate the animations
     incomeSummary.classList.add("slide-out")
     expensesSummary.classList.add("slide-out")
@@ -171,7 +171,7 @@ function updateDashboard() {
     const expensesSummary = document.querySelector("#expenses-summary")
     const balanceSummary = document.querySelector("#balance-summary")
 
-    animateSummary(incomeSummary, totalIncome()) // element, newValue
+    animateSummary(incomeSummary, totalIncome()) 
     animateSummary(expensesSummary, totalExpenses())
     animateSummary(balanceSummary, calculateBalance())
 }
