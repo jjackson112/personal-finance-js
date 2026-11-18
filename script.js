@@ -147,19 +147,9 @@ function animateSummary(element, newValue) {
     // use classList to activate the animations
     element.classList.add("slide-out")
 
-    incomeSummary.addEventListener("transitionend", function() {
-        incomeSummary.textContent = currencyFormatter.format(totalIncome())
-        incomeSummary.classList.remove("slide-out")
-    }, { once: true })
-
-    expensesSummary.addEventListener("transitionend", function() {
-        expensesSummary.textContent = currencyFormatter.format(totalExpenses())
-        expensesSummary.classList.remove("slide-out")
-    }, { once: true })
-    
-    balanceSummary.addEventListener("transitionend", function() {
-        balanceSummary.textContent = currencyFormatter.format(calculateBalance())
-        balanceSummary.classList.remove("slide-out")
+    element.addEventListener("transitionend", function(e) {
+        element.textContent = currencyFormatter.format(newValue)
+        element.classList.remove("slide-out")
     }, { once: true })
 }
 
