@@ -234,3 +234,7 @@ const sorted = [...filtered]
 
 sorted.sort((a, b) => a.amount - b.amount) // lowest to highest
 sorted.sort((a, b) => b.amount - a.amount) // highest to lowest
+
+// JS has built-in Date object + convert it to numeric timestamp with getTime()
+const date = new Date()
+const timestamp = new Date().getTime()
