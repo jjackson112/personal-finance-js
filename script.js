@@ -227,30 +227,27 @@ function filterSortTransactionList () {
         ? transactions
         : transactions.filter(item => item.type === selectedType)
 
+        // spread operator - copies over existing array + creates a new one
         const sorted = [...filtered]
 
         // console.log(filtered)
 
     // sort by newest, oldest, highest or lowest amount, etc.
-    // spread operator - copies over existing array + creates a new one
-
     // const date = new Date() - reminder of JS built-in Date object
     // const timestamp = new Date().getTime()
 
-    sortTransactions.addEventListener("change", function(e) {
+    if (sortedType === "lowest") {
+        sorted.sort((a, b) => a.amount - b.amount)
 
-        if (sortedType === "lowest") {
-            sorted.sort((a, b) => a.amount - b.amount)
+    } else if (sortedType === "highest") {
+        sorted.sort((a, b) => b.amount - a.amount) 
 
-        } else if (sortedType === "highest") {
-            sorted.sort((a, b) => b.amount - a.amount) 
+    } else if (sortedType === "oldest") {
+        sorted.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
-        } else if (sortedType === "oldest") {
-            sorted.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-
-        } else if (sortedType === "newest") {
-            sorted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        }
-    })
-
+    } else if (sortedType === "newest") {
+        sorted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    }
 }
+filterTransactions.addEventListener("change", filterSortTransactionList)
+sortTransactions.addEventListener("change", filterSortTransactionList)
