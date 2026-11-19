@@ -216,40 +216,41 @@ form.addEventListener("submit", function(e) {
 
 // filter transactions by type + category
 const filterTransactions = document.querySelector("#transaction-filter")
-
-filterTransactions.addEventListener("change", function(e) {
-const selectedType = e.target.value
-
-// ternary operator instead of if/else statement
-const filtered = selectedType === "all"
-    ? transactions
-    : transactions.filter(item => item.type === selectedType)
-
-    console.log(filtered)
-})
-
-// sort by newest, oldest, highest or lowest amount, etc.
-// spread operator - copies over existing array + creates a new one
 const sortTransactions = document.querySelector("#transaction-sorter")
-const sorted = [...filtered]
 
-const date = new Date()
-const timestamp = new Date().getTime()
+function filterSortTransactionList () {
+    const selectedType = filterTransactions.value
+    const sortedType = sortTransactions.value
 
-sortTransactions.addEventListener("change", function(e) {
-    const sortedType = e.target.value
+    // ternary operator instead of if/else statement
+    const filtered = selectedType === "all"
+        ? transactions
+        : transactions.filter(item => item.type === selectedType)
 
-    if (sortedType === "lowest") {
-        sorted.sort((a, b) => a.amount - b.amount)
+        const sorted = [...filtered]
 
-    } else if (sortedType === "highest") {
-        sorted.sort((a, b) => b.amount - a.amount) 
+        // console.log(filtered)
 
-    } else if (sortedType === "newest") {
-        sorted.sort((a, b) => new Date(a.date).getTime() - new Date(b.Date).getTime())
+    // sort by newest, oldest, highest or lowest amount, etc.
+    // spread operator - copies over existing array + creates a new one
 
-    } else if (sortedType === "oldest") {
-        sorted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    }
-})
+    // const date = new Date() - reminder of JS built-in Date object
+    // const timestamp = new Date().getTime()
 
+    sortTransactions.addEventListener("change", function(e) {
+
+        if (sortedType === "lowest") {
+            sorted.sort((a, b) => a.amount - b.amount)
+
+        } else if (sortedType === "highest") {
+            sorted.sort((a, b) => b.amount - a.amount) 
+
+        } else if (sortedType === "oldest") {
+            sorted.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+
+        } else if (sortedType === "newest") {
+            sorted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        }
+    })
+
+}
