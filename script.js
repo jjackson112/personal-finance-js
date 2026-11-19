@@ -223,18 +223,32 @@ const selectedType = e.target.value
 // ternary operator instead of if/else statement
 const filtered = selectedType === "all"
     ? transactions
-    : transactions.filter(item => item.id === selectedType)
+    : transactions.filter(item => item.type === selectedType)
 
     console.log(filtered)
 })
 
-// sort by newest, highest or lowest amount, etc.
+// sort by newest, oldest, highest or lowest amount, etc.
 // spread operator - copies over existing array + creates a new one
+const sortTransactions = document.querySelector("#transaction-sorter")
 const sorted = [...filtered]
-
-sorted.sort((a, b) => a.amount - b.amount) // lowest to highest
-sorted.sort((a, b) => b.amount - a.amount) // highest to lowest
 
 // JS has built-in Date object + convert it to numeric timestamp with getTime()
 const date = new Date()
 const timestamp = new Date().getTime()
+
+sorted.addEventListener("change", function(e) {
+    const sortedType = e.target.value
+
+console.log(sortedType)
+
+if (sortedType === "lowest") {
+    sorted.sort((a, b) => a.amount - b.amount)
+} else if (sortedType === "highest")
+    sorted.sort((a, b) => b.amount - a.amount) 
+} else {
+    
+}
+
+})
+
