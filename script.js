@@ -223,7 +223,7 @@ form.addEventListener("submit", function(e) {
     // ternary operator instead of if/else statement
     const filtered = selectedType === "all"
         ? transactions
-        : transactions.filter(item => item.id === transaction.type)
+        : transactions.filter(item => item.id === selectedType)
 
     console.log(selectedType)
     })
