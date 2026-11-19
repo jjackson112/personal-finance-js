@@ -215,16 +215,23 @@ form.addEventListener("submit", function(e) {
 })
 
 // filter transactions by type + category
-    const filterTransactions = document.querySelector("#transaction-filter")
+const filterTransactions = document.querySelector("#transaction-filter")
 
-    filterTransactions.addEventListener("change", function(e) {
-    const selectedType = e.target.value
+filterTransactions.addEventListener("change", function(e) {
+const selectedType = e.target.value
 
-    // ternary operator instead of if/else statement
-    const filtered = selectedType === "all"
-        ? transactions
-        : transactions.filter(item => item.id === selectedType)
+// ternary operator instead of if/else statement
+const filtered = selectedType === "all"
+    ? transactions
+    : transactions.filter(item => item.id === selectedType)
 
     console.log(filtered)
-    })
- 
+})
+
+// sort by newest, highest or lowest amount, etc.
+// spread operator - copies over existing array + creates a new one
+const sorted = [...filtered]
+
+sorted.sort((a, b) => {
+    
+})
