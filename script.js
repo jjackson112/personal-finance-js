@@ -220,6 +220,11 @@ form.addEventListener("submit", function(e) {
     filterTransactions.addEventListener("change", function(e) {
     const selectedType = e.target.value
 
+    // ternary operator instead of if/else statement
+    const filtered = selectedType === "all"
+        ? transactions
+        : transactions.filter(item => item.id === transaction.type)
+
     console.log(selectedType)
     })
  
