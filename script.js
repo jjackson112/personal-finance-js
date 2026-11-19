@@ -232,6 +232,5 @@ const filtered = selectedType === "all"
 // spread operator - copies over existing array + creates a new one
 const sorted = [...filtered]
 
-sorted.sort((a, b) => {
-    
-})
+sorted.sort((a, b) => a.amount - b.amount) // lowest to highest
+sorted.sort((a, b) => b.amount - a.amount) // highest to lowest
