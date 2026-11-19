@@ -225,6 +225,6 @@ form.addEventListener("submit", function(e) {
         ? transactions
         : transactions.filter(item => item.id === selectedType)
 
-    console.log(selectedType)
+    console.log(filtered)
     })
  
