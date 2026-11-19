@@ -233,22 +233,21 @@ const filtered = selectedType === "all"
 const sortTransactions = document.querySelector("#transaction-sorter")
 const sorted = [...filtered]
 
-// JS has built-in Date object + convert it to numeric timestamp with getTime()
 const date = new Date()
 const timestamp = new Date().getTime()
 
-sorted.addEventListener("change", function(e) {
+sortTransactions.addEventListener("change", function(e) {
     const sortedType = e.target.value
 
-console.log(sortedType)
+    if (sortedType === "lowest") {
+        sorted.sort((a, b) => a.amount - b.amount)
+    } else if (sortedType === "highest")
+        sorted.sort((a, b) => b.amount - a.amount) 
+    } else if (sortedType === "newest") {
+        sorted.sort((a, b) => new Date(a.date).getTime() - new Date(b.Date).getTime())
+    } else if (sortedType === "oldest") {
+        sorted.sort((a, b))
+    }
 
-if (sortedType === "lowest") {
-    sorted.sort((a, b) => a.amount - b.amount)
-} else if (sortedType === "highest")
-    sorted.sort((a, b) => b.amount - a.amount) 
-} else {
-    
-}
-
-})
+)
 
