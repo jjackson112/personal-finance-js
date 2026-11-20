@@ -65,11 +65,18 @@
                         
                         <label class="text-gray-500 font-medium" for="category-dropdown">Category</label>
                         <select class="border border-gray-300 rounded-lg px-3 py-2" id="category-dropdown" name="category">
-                            <option value="transportation">Car Payment</option>
+                            <option value="dining">Dining</option>
+                            <option value="education">Education</option>
+                            <option value="entertainment">Entertainment</option>
                             <option value="groceries">Groceries</option>
+                            <option value="health">Health</option>
                             <option value="income">Income</option>
+                            <option value="other">Other</option>
                             <option value="rent">Rent</option>
+                            <option value="shopping">Shopping</option>
                             <option value="subscriptions">Subscriptions</option>
+                            <option value="transport">Transport</option>
+                            <option value="utilities">Utilities</option>
                         </select>
                         
                         <fieldset class="flex gap-6">
@@ -135,22 +142,28 @@
                 <section class="lg:col-span-3 self-start bg-white p-6 rounded-xl shadow-sm" id="recent-transactions">
                     <h3 class="text-emerald-800 font-semibold text-lg m-4">Recent Transactions</h3>
                     
-                    <label class="text-gray-500 font-medium" for="transaction-filter">Filter</label>
-                    <select class="border border-gray-300 rounded-lg px-3 py-2" id="transaction-filter" name="filter">
-                        <option value="all">All Transactions</option>
-                        <option value="income">Income</option>
-                        <option value="expense">Expenses</option>
-                    </select>
+                    <div class="p-6">
+                        <div class="flex flex-col mb-6">
+                            <label class="text-gray-500 font-medium mb-2" for="transaction-filter">Filter</label>
+                            <select class="border border-gray-300 rounded-lg px-3 py-2" id="transaction-filter" name="filter">
+                                <option value="all">All Transactions</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expenses</option>
+                            </select>
+                        </div>
 
-                    <label class="text-gray-500 font-medium" for="transaction-sorter">Sort</label>
-                    <select class="border border-gray-300 rounded-lg px-3 py-2" id="transaction-sorter" name="sorter">
-                        <option value="all">All</option>
-                        <option value="newest">Newest</option>
-                        <option value="oldest">Oldest</option>
-                        <option value="highest">Amount: High to Low</option>
-                        <option value="lowest">Amount: Low to High</option>
-                    </select>
-
+                        <div class="flex flex-col mb-6">
+                            <label class="text-gray-500 font-medium mb-2" for="transaction-sorter">Sort</label>
+                            <select class="border border-gray-300 rounded-lg px-3 py-2" id="transaction-sorter" name="sorter">
+                                <option value="all">All</option>
+                                <option value="newest">Newest</option>
+                                <option value="oldest">Oldest</option>
+                                <option value="highest">Amount: High to Low</option>
+                                <option value="lowest">Amount: Low to High</option>
+                            </select>
+                        </div>
+                    </div>
+                    
                     <div id="transaction-list"></div>
                 </section>
 

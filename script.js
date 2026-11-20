@@ -100,7 +100,45 @@ function formatTransactionAmount(transaction) {
 
 // console.log(formatTransactionAmount(transactionSix))
 
-function displayTransactions() {
+// filter transactions by type + category
+const filterTransactions = document.querySelector("#transaction-filter")
+const sortTransactions = document.querySelector("#transaction-sorter")
+
+function filterSortTransactionList () {
+    const selectedType = filterTransactions.value
+    const sortedType = sortTransactions.value
+
+    // ternary operator instead of if/else statement
+    const filtered = selectedType === "all"
+        ? transactions
+        : transactions.filter(item => item.type === selectedType)
+
+    // spread operator - copies over existing array + creates a new one
+    const sorted = [...filtered]
+
+    console.log(filtered)
+
+    // sort by newest, oldest, highest or lowest amount, etc.
+    // const date = new Date() - reminder of JS built-in Date object
+    // const timestamp = new Date().getTime()
+
+    if (sortedType === "lowest") {
+        sorted.sort((a, b) => a.amount - b.amount)
+
+    } else if (sortedType === "highest") {
+        sorted.sort((a, b) => b.amount - a.amount) 
+
+    } else if (sortedType === "oldest") {
+        sorted.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+
+    } else if (sortedType === "newest") {
+        sorted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    }
+
+    displayTransactions(sorted)
+}
+
+function displayTransactions(transactionsToDisplay) {
     // const transactionTitle = document.querySelector("#headings h2")
     const transactionList = document.querySelector("#transaction-list")
     
@@ -110,10 +148,12 @@ function displayTransactions() {
     // prevent duplicates
     transactionList.textContent = ""
 
-    transactions.forEach((transaction) => {
+    transactionsToDisplay.forEach((transaction) => {
         const singleTransaction = document.createElement("div")
         const merchantName = document.createElement("p")
         const transactionAmount = document.createElement("p")
+        const category = document.createElement("p")
+        const transactionDate = document.createElement("p")
 
         // use classList property to add, remove, or toggle CSS classes
         singleTransaction.classList.add(
@@ -128,6 +168,8 @@ function displayTransactions() {
         
         merchantName.textContent = transaction.merchant
         transactionAmount.textContent = formatTransactionAmount(transaction)
+        category.textContent = transaction.category
+        transactionDate.textContent = transaction.date
         
         if (transaction.type === "income") {
             transactionAmount.classList.add("text-emerald-600")
@@ -135,12 +177,16 @@ function displayTransactions() {
             transactionAmount.classList.add("text-red-600")
         }
 
-        singleTransaction.append(merchantName, transactionAmount)
+        singleTransaction.append(merchantName, transactionAmount, category, transactionDate)
         transactionList.append(singleTransaction)
 
         console.log(transaction)
     })
 }
+
+// add after added transactions - even though user hasn't changed dropdown selection
+filterTransactions.addEventListener("change", filterSortTransactionList)
+sortTransactions.addEventListener("change", filterSortTransactionList)
 
 // CSS animation for summary totals - parameters are (element - HTML, newValue - number)
 function animateSummary(element, newValue) {
@@ -210,44 +256,7 @@ form.addEventListener("submit", function(e) {
 
     addTransaction(transaction)
     updateDashboard()
-    displayTransactions()
+    filterSortTransactionList()
     form.reset()
 })
 
-// filter transactions by type + category
-const filterTransactions = document.querySelector("#transaction-filter")
-const sortTransactions = document.querySelector("#transaction-sorter")
-
-function filterSortTransactionList () {
-    const selectedType = filterTransactions.value
-    const sortedType = sortTransactions.value
-
-    // ternary operator instead of if/else statement
-    const filtered = selectedType === "all"
-        ? transactions
-        : transactions.filter(item => item.type === selectedType)
-
-        // spread operator - copies over existing array + creates a new one
-        const sorted = [...filtered]
-
-        // console.log(filtered)
-
-    // sort by newest, oldest, highest or lowest amount, etc.
-    // const date = new Date() - reminder of JS built-in Date object
-    // const timestamp = new Date().getTime()
-
-    if (sortedType === "lowest") {
-        sorted.sort((a, b) => a.amount - b.amount)
-
-    } else if (sortedType === "highest") {
-        sorted.sort((a, b) => b.amount - a.amount) 
-
-    } else if (sortedType === "oldest") {
-        sorted.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-
-    } else if (sortedType === "newest") {
-        sorted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    }
-}
-filterTransactions.addEventListener("change", filterSortTransactionList)
-sortTransactions.addEventListener("change", filterSortTransactionList)
